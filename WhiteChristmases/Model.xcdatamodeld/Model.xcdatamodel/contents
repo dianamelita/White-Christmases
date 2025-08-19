@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23231" systemVersion="24G84" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="FIPSCountry" representedClassName=".FIPSCountry" syncable="YES">
+        <attribute name="code" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+    </entity>
+    <entity name="USState" representedClassName=".USState" syncable="YES">
+        <attribute name="abbreviation" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+    </entity>
+</model>
