@@ -23,7 +23,6 @@ struct ContentView: View {
             // bath, uk: 51.370732, -2.395558
             // cluj, ro: 46.758104, 23.644359
 
-
             USStateLoader().seedUSStatesIfNeeded()
             FIPSCodeCountryMapper().getFIPSCodeFromCoordinates(
                 latitude: latitude,

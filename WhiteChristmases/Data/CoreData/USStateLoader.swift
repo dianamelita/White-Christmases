@@ -4,7 +4,7 @@ final class USStateLoader {
 
     private let context: NSManagedObjectContext
 
-    init(context: NSManagedObjectContext = FIPSCountryProvider.shared.viewContext) {
+    init(context: NSManagedObjectContext = WeatherDataProvider.shared.viewContext) {
         self.context = context
     }
 
@@ -52,6 +52,6 @@ final class USStateLoader {
         let request = NSFetchRequest<USState>(entityName: "USState")
         request.predicate = NSPredicate(format: "abbreviation ==[c] %@", abbr)
 
-        return (try? FIPSCountryProvider.shared.viewContext.fetch(request).first)?.name
+        return (try? WeatherDataProvider.shared.viewContext.fetch(request).first)?.name
     }
 }

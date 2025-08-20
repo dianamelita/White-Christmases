@@ -48,13 +48,3 @@ final class NOAAService {
         return components.url
     }
 }
-
-struct NOAADataResponse: Decodable {
-    let results: [NOAAWeatherRecord]
-}
-
-struct NOAAWeatherRecord: Decodable {
-    let date: String
-    let datatype: String
-    let value: Double
-}

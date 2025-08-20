@@ -22,7 +22,7 @@ final class FIPSCodeCountryMapper {
 
 
     func findMostSpecificFIPSCode(for country: String, region: String?) -> String? {
-        let context = FIPSCountryProvider.shared.viewContext
+        let context = WeatherDataProvider.shared.viewContext
 
         var regionName = region
         // 🔍 Check if it's a US state abbreviation, and get full name

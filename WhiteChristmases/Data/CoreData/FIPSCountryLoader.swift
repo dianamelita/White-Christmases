@@ -4,12 +4,12 @@ import CoreData
 final class FIPSCountryLoader {
     private let context: NSManagedObjectContext
 
-    init(context: NSManagedObjectContext = FIPSCountryProvider.shared.viewContext) {
+    init(context: NSManagedObjectContext = WeatherDataProvider.shared.viewContext) {
         self.context = context
     }
 
     private var fipsCountriesLoaded: Bool = {
-        let context = FIPSCountryProvider.shared.viewContext
+        let context = WeatherDataProvider.shared.viewContext
         let fetchRequest:  NSFetchRequest<any NSFetchRequestResult> = FIPSCountry.fetchRequest()
         fetchRequest.fetchLimit = 1
 
@@ -56,13 +56,13 @@ final class FIPSCountryLoader {
                     .replacingOccurrences(of: "_", with: "")
                     .trimmingCharacters(in: .whitespacesAndNewlines)
 
-                let region = FIPSCountry(context: FIPSCountryProvider.shared.viewContext)
+                let region = FIPSCountry(context: WeatherDataProvider.shared.viewContext)
                 region.code = code
                 region.name = name
                 countries.append(region)
             }
 
-            try FIPSCountryProvider.shared.viewContext.save()
+            try WeatherDataProvider.shared.viewContext.save()
             print("✅ Loaded \(countries.count) FIPS entries with flexible parsing.")
             return countries
 

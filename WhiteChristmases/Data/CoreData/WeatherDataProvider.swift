@@ -1,8 +1,8 @@
 import Foundation
 import CoreData
 
-final class FIPSCountryProvider {
-    static let shared = FIPSCountryProvider()
+final class WeatherDataProvider {
+    static let shared = WeatherDataProvider()
     private let persistentContainer: NSPersistentContainer
 
     var viewContext: NSManagedObjectContext {

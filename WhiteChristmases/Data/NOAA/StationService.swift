@@ -109,14 +109,3 @@ class StationService {
         })
     }
 }
-
-struct NOAAStationsResponse: Decodable {
-    let results: [NOAAStation]
-}
-
-struct NOAAStation: Decodable {
-    let id: String
-    let name: String
-    let latitude: Double
-    let longitude: Double
-}
