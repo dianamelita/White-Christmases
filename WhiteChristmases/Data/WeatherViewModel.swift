@@ -5,14 +5,14 @@ class WeatherViewModel: ObservableObject {
 
     private let service = NOAAService()
 
-    func loadSnowData() {
+    func loadSnowData(for latitude: Double, longitude: Double, fipsCode: String) {
         let stationService = StationService()
-        let bristolLat = 51.369932
-        let bristolLon = -2.400912
-        let alaskaLat = 64.831037
-        let alaskaLon = -147.829153
 
-        stationService.fetchStations(near: alaskaLat, lon: alaskaLon) { stations in
+        stationService.fetchStations(
+            near: latitude,
+            lon: longitude,
+            fipsCode: fipsCode
+        ) { stations in
             for station in stations {
 
                 print("📍 Station: \(station.name), ID: \(station.id), lat: \(station.latitude), lon: \(station.longitude)")

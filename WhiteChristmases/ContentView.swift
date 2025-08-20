@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  WhiteChristmases
-//
-//  Created by Diana Dezso on 19/08/2025.
-//
-
 import SwiftUI
 
 struct ContentView: View {
@@ -22,26 +15,28 @@ struct ContentView: View {
 
             let loader = FIPSCountryLoader()
             let _ = loader.loadAllFIPSCodesFromFile()
+            let latitude = 64.831037
+            let longitude = -147.829153
+
+            // alaska: 64.831037, -147.829153
+            // aragua, venezuela: 10.117207, -67.268136
+            // bath, uk: 51.370732, -2.395558
+            // cluj, ro: 46.758104, 23.644359
+
 
             USStateLoader().seedUSStatesIfNeeded()
             FIPSCodeCountryMapper().getFIPSCodeFromCoordinates(
-                latitude: 64.831037,
-                longitude: -147.829153
-                // alaska: 64.831037, -147.829153
-                // aragua, venezuela
-               // 10.117207, -67.268136
+                latitude: latitude,
+                longitude: longitude
             ) { country in
-                print(country)
-                viewModel.loadSnowData()
+                guard let countryCode = country else { return }
+                print("🌎 country code found: \(countryCode)")
+                viewModel.loadSnowData(
+                    for: latitude,
+                    longitude: longitude,
+                    fipsCode: countryCode
+                )
             }
-//            { result in
-//                switch result {
-//                case .success(let countries):
-//                    print("✅ Loaded \(countries.count) countries")
-//                case .failure(let error):
-//                    print("❌ Failed to load countries: \(error)")
-//                }
-//            }
         }
     }
 }
