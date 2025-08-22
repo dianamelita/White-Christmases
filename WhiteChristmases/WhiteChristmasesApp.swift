@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct WhiteChristmasesApp: App {
+    @StateObject private var viewModel = AppStateViewModel()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if viewModel.didFinishLoading {
+                ContentView()
+            } else {
+                WelcomeView(viewModel: viewModel)
+            }
         }
     }
 }

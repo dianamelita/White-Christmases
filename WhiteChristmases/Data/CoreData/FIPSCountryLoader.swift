@@ -24,6 +24,7 @@ final class FIPSCountryLoader {
         return false
     }()
 
+    @discardableResult
     func loadAllFIPSCodesFromFile() -> [FIPSCountry] {
         guard !fipsCountriesLoaded else { return [] }
 
